@@ -79,14 +79,14 @@
 
 :root {
     --background: rgba(255, 255, 255, 1);
-    --foreground: rgba(19, 87, 48);
+    --foreground:  rgba(19, 87, 48);
     --card: rgba(255, 255, 255, 1);
     --card-foreground: rgba(37, 37, 37, 1);
     --popover: rgba(255, 255, 255, 1);
     --popover-foreground: rgba(37, 37, 37, 1);
     --primary: rgb(41, 182, 101);
     --primary-foreground: rgba(255, 255, 255, 1);
-    --secondary: rgba(247, 247, 247, 1);
+    --secondary: rgba(235, 171, 39);
     --secondary-foreground: rgba(52, 52, 52, 1);
     --muted: rgba(247, 247, 247, 1);
     --muted-foreground: rgba(142, 142, 142, 1);
