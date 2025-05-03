@@ -78,7 +78,7 @@
 }
 
 :root {
-    --background: rgba(255, 255, 255, 1);
+    --background: rgba(244, 253, 249);
     --foreground:  rgba(19, 87, 48);
     --card: rgba(255, 255, 255, 1);
     --card-foreground: rgba(19, 87, 48);
@@ -103,11 +103,11 @@
     --chart-4: rgba(255, 204, 102, 1);
     --chart-5: rgba(255, 196, 102, 1);
     --radius: 0.625rem;
-    --sidebar: rgba(255, 255, 255, 1);
+    --sidebar: rgba(244, 253, 249);
     --sidebar-foreground: rgba(37, 37, 37, 1);
     --sidebar-primary: rgba(52, 52, 52, 1);
-    --sidebar-primary-foreground: rgba(255, 255, 255, 1);
-    --sidebar-accent: rgba(247, 247, 247, 1);
+    --sidebar-primary-foreground: rgba(244, 253, 249);
+    --sidebar-accent: rgb(228, 251, 241);
     --sidebar-accent-foreground: rgba(52, 52, 52, 1);
     --sidebar-border: rgba(235, 235, 235, 1);
     --sidebar-ring: rgba(222, 222, 222, 1);
