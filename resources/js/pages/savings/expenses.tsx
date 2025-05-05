@@ -17,9 +17,11 @@ export default function Expenses() {
         <div className="flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
             <div className="flex w-full max-w-md flex-col gap-6">
                 <div className="flex flex-col gap-6">
-                    <Card className="rounded-xl">
+                    <Card className="rounded-xl text-center">
                         <CardHeader className="p-4">
-                            <CardTitle className="text-xl text-left"> 💰  Expenses Categories</CardTitle>
+                            <CardTitle className="text-xl">
+                                Expenses Categories
+                            </CardTitle>
                         </CardHeader>
                         <CardContent className="px-10 py-8"></CardContent>
                     </Card>

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Support\Facades\Log;
 
 class RegisteredUserController extends Controller
 {
@@ -40,12 +41,15 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'status' => 0,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
-
+        if ($user->status == 0) {
+            return redirect(route('savings.expenses', absolute: false));
+        }
         return to_route('dashboard');
     }
 }

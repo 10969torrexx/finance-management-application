@@ -4,6 +4,8 @@ import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 import { initializeTheme } from './hooks/use-appearance';
+import 'boxicons/css/boxicons.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
