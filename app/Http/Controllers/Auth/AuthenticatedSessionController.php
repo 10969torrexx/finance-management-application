@@ -32,6 +32,10 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
+        //TODO: redirect to expenses page if user status is 0
+        if (Auth::user()->status == 0) {
+            return redirect(route('savings.expenses', absolute: false));
+        }
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

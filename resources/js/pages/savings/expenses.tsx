@@ -1,9 +1,11 @@
 import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Link } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
+import InputError from '@/components/input-error';
+import InputGroupButton from '@/components/ui/input-group-button';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -23,7 +25,12 @@ export default function Expenses() {
                                 Expenses Categories
                             </CardTitle>
                         </CardHeader>
-                        <CardContent className="px-10 py-8"></CardContent>
+                        <CardContent className="px-10 py-8">
+                            
+                            <div className="grid gap-2">
+                                <InputGroupButton></InputGroupButton>
+                            </div>
+                        </CardContent>
                     </Card>
                 </div>
             </div>
