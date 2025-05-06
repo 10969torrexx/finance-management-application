@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
-
+import { Card, CardContent } from '@/components/ui/card';
 const sidebarNavItems: NavItem[] = [
     {
         title: 'Profile',
