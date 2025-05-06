@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Link } from '@inertiajs/react';
@@ -15,6 +16,14 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Expenses() {
+    const [inputValue, setInputValue] = useState("");
+    const [items, setItems] = useState<string[]>([]);
+
+    const handleAdd = () => {
+        if (inputValue.trim() === "") return;
+        setItems([...items, inputValue]);
+        setInputValue("");
+    };
     return (
         <div className="flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
             <div className="flex w-full max-w-md flex-col gap-6">
@@ -25,10 +34,20 @@ export default function Expenses() {
                                 Expenses Categories
                             </CardTitle>
                         </CardHeader>
-                        <CardContent className="px-10 py-8">
-                            
+                        <CardContent className="px-10">
+                            <div className="grid mb-4">
+                                <ul className="list-disc pl-5 text-sm text-gray-800">
+                                    {items.map((item, index) => (
+                                    <li key={index}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
                             <div className="grid gap-2">
-                                <InputGroupButton></InputGroupButton>
+                                <InputGroupButton
+                                    value={inputValue}
+                                    onInputChange={setInputValue}
+                                    onButtonClick={handleAdd}
+                                ></InputGroupButton>
                             </div>
                         </CardContent>
                     </Card>
