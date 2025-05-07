@@ -31,7 +31,8 @@ export default function Expenses() {
         <div className="bg-white flex min-h-svh flex-col items-center gap-6 p-6 md:p-10">
             <Heading title="Expenses Categories" description="Please categorize your expenses" />
             <div className="w-full h-full">
-                <CategoriesList />
+                <CategoriesList title="Category One" isDisabled />
+                <CategoriesList title="Category One" isDeletable/>
             </div>
         </div>
     );
