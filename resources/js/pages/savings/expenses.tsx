@@ -7,6 +7,9 @@ import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import InputError from '@/components/input-error';
 import InputGroupButton from '@/components/ui/input-group-button';
+import Heading from '@/components/heading'
+import { Dialog } from "@radix-ui/react-dialog";
+import CategoriesList from "@/components/categories-list";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -25,33 +28,10 @@ export default function Expenses() {
         setInputValue("");
     };
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-            <div className="flex w-full max-w-md flex-col gap-6">
-                <div className="flex flex-col gap-6">
-                    <Card className="rounded-xl text-center">
-                        <CardHeader className="p-4">
-                            <CardTitle className="text-xl">
-                                Expenses Categories
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="px-10">
-                            <div className="grid mb-4">
-                                <ul className="list-disc pl-5 text-sm text-gray-800">
-                                    {items.map((item, index) => (
-                                    <li key={index}>{item}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="grid gap-2">
-                                <InputGroupButton
-                                    value={inputValue}
-                                    onInputChange={setInputValue}
-                                    onButtonClick={handleAdd}
-                                ></InputGroupButton>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
+        <div className="bg-white flex min-h-svh flex-col items-center gap-6 p-6 md:p-10">
+            <Heading title="Expenses Categories" description="Please categorize your expenses" />
+            <div className="w-full h-full">
+                <CategoriesList />
             </div>
         </div>
     );
