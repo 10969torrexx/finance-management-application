@@ -52,26 +52,29 @@ export default function Expenses() {
     return (
         <div className="flex min-h-svh flex-col items-center gap-6 p-6 md:p-10">
             <Heading title="Expenses Categories" description="Please categorize your expenses" />
-            <div className="w-full h-full">
+        
+            <div className="w-full flex-1 overflow-y-auto h-100">
                 {items.length > 0 ? (
                     items.map((item, index) => (
-                        <CategoriesList 
-                            key={index} 
-                            title={item} isDeletable
-                            onButtonClick={() => handleRemoveItem(index)}
-                        />
+                    <CategoriesList 
+                        key={index} 
+                        title={item} 
+                        isDeletable
+                        onButtonClick={() => handleRemoveItem(index)}
+                    />
                     ))
                 ) : (
                     <CategoriesList className="italic" title="Categories goes here" isDisabled />
                 )}
             </div>
+        
             <div className="mt-auto pt-2 w-full">
-                <InputGroupButton
-                    value={inputValue}
-                    onInputChange={handleInputValue}
-                    onButtonClick={handleAdd}
-                    icon={faPlus}
-                />
+            <InputGroupButton
+                value={inputValue}
+                onInputChange={handleInputValue}
+                onButtonClick={handleAdd}
+                icon={faPlus}
+            />
             </div>
         </div>
     );
