@@ -10,6 +10,7 @@ import InputGroupButton from '@/components/ui/input-group-button';
 import Heading from '@/components/heading'
 import { Dialog } from "@radix-ui/react-dialog";
 import CategoriesList from "@/components/categories-list";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -28,6 +29,13 @@ export default function Expenses() {
 
     const handleAdd = () => {
         if (inputValue.trim() === "") return;
+
+        //TODO: check if expense is already added
+        if (items.includes(inputValue)) {
+            setInputValue("");
+            return;
+        }
+
         setItems([...items, inputValue]);
         setInputValue("");
     };
@@ -39,20 +47,20 @@ export default function Expenses() {
     }
 
     return (
-        <div className="bg-background flex min-h-svh flex-col items-center gap-6 p-6 md:p-10">
+        <div className="flex min-h-svh flex-col items-center gap-6 p-6 md:p-10">
             <Heading title="Expenses Categories" description="Please categorize your expenses" />
             <div className="w-full h-full">
-               {items.length > 0 ? (
+                {items.length > 0 ? (
                     items.map((item, index) => (
                         <CategoriesList 
                             key={index} 
                             title={item} isDeletable
                             onButtonClick={() => handleRemoveItem(index)}
                         />
-                      ))
-               ) : (
+                    ))
+                ) : (
                     <CategoriesList className="italic" title="Categories goes here" isDisabled />
-               )}
+                )}
             </div>
             <div className="mt-auto pt-2 w-full">
                 <InputGroupButton
