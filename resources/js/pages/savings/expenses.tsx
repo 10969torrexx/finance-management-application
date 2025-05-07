@@ -11,6 +11,7 @@ import Heading from '@/components/heading'
 import { Dialog } from "@radix-ui/react-dialog";
 import CategoriesList from "@/components/categories-list";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { toast } from "react-toastify";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -33,6 +34,7 @@ export default function Expenses() {
         //TODO: check if expense is already added
         if (items.includes(inputValue)) {
             setInputValue("");
+            toast.error("Expense already added");
             return;
         }
 
