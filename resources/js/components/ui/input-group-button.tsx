@@ -1,6 +1,15 @@
 import React from "react";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function InputGroupButton({ value, onInputChange, onButtonClick }: { value: string, onInputChange: (value: string) => void, onButtonClick: () => void }) {
+type InputGroupButtonProps = { 
+    value: string;
+    onInputChange: (value: string) => void;
+    onButtonClick: () => void;
+    icon?: IconDefinition;
+}
+
+export default function InputGroupButton({ value, onInputChange, onButtonClick, icon }: InputGroupButtonProps) {
     return (
         <div className="flex mb-3">
             <input
@@ -16,7 +25,11 @@ export default function InputGroupButton({ value, onInputChange, onButtonClick }
                 className="h-9 rounded-r-md border border-l-0 border-primary-300 bg-primary px-4 text-sm font-bold text-white transition-colors duration-150 hover:bg-primary/90 active:bg-primary/80 focus:outline-none"
                 onClick={onButtonClick}
             >
-                Click
+             {icon ? (
+                <FontAwesomeIcon icon={icon} className="text-white" />
+             ) : (
+                "Submit"
+             )}  
             </button>
         </div>
     );

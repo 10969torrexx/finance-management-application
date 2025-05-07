@@ -12,6 +12,7 @@ import { Dialog } from "@radix-ui/react-dialog";
 import CategoriesList from "@/components/categories-list";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { toast } from "react-toastify";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -69,6 +70,7 @@ export default function Expenses() {
                     value={inputValue}
                     onInputChange={handleInputValue}
                     onButtonClick={handleAdd}
+                    icon={faPlus}
                 />
             </div>
         </div>
