@@ -22,17 +22,44 @@ export default function Expenses() {
     const [inputValue, setInputValue] = useState("");
     const [items, setItems] = useState<string[]>([]);
 
+    const handleInputValue = (value: string) => {
+        setInputValue(value);
+    }
+
     const handleAdd = () => {
         if (inputValue.trim() === "") return;
         setItems([...items, inputValue]);
         setInputValue("");
     };
+
+    const handleRemoveItem = (index: number) => { 
+        const newItems = [...items];
+        newItems.splice(index, 1);
+        setItems(newItems);
+    }
+
     return (
-        <div className="bg-white flex min-h-svh flex-col items-center gap-6 p-6 md:p-10">
+        <div className="bg-background flex min-h-svh flex-col items-center gap-6 p-6 md:p-10">
             <Heading title="Expenses Categories" description="Please categorize your expenses" />
             <div className="w-full h-full">
-                <CategoriesList title="Category One" isDisabled />
-                <CategoriesList title="Category One" isDeletable/>
+               {items.length > 0 ? (
+                    items.map((item, index) => (
+                        <CategoriesList 
+                            key={index} 
+                            title={item} isDeletable
+                            onButtonClick={() => handleRemoveItem(index)}
+                        />
+                      ))
+               ) : (
+                    <CategoriesList className="italic" title="Categories goes here" isDisabled />
+               )}
+            </div>
+            <div className="mt-auto pt-2 w-full">
+                <InputGroupButton
+                    value={inputValue}
+                    onInputChange={handleInputValue}
+                    onButtonClick={handleAdd}
+                />
             </div>
         </div>
     );
